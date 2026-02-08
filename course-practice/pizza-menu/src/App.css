@@ -1,0 +1,10 @@
+.container {
+  width: 70%;
+  padding: 0 15%;
+  /* text-align: center; */
+}
+
+Header,
+Footer {
+  text-align: center;
+}
