@@ -15,9 +15,13 @@ export function Header(props: { name: string }) {
 }
 
 export function Footer() {
-  const currentHour = new Date().getHours();
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
   const footerMsg =
-    currentHour >= 12 && currentHour <= 22 ? "We're Open!" : "We're Close!";
+    hour >= openHour && hour <= closeHour
+      ? `We're open until ${openHour}:00. Come visit us or order online`
+      : "Sorry, We're Closed!";
   return <footer>{footerMsg}</footer>;
 }
 
@@ -41,8 +45,8 @@ function MenuItemComponent({ item }: { item: MenuItem }) {
 export function Menu({ menus }: { menus: MenuItem[] }) {
   return (
     <div className="menu-items">
-      {menus.map((item: MenuItem) => {
-        return <MenuItemComponent item={item} />;
+      {menus.map((item: MenuItem, index: number) => {
+        return <MenuItemComponent item={item} key={index} />;
       })}
     </div>
   );
