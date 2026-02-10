@@ -34,9 +34,26 @@
   height: 150px;
   object-fit: cover;
   display: block;
+}
 
-  p {
-    margin: 0;
-    font-size: 10px;
-  }
+.pizza-item > h3 {
+  margin: 8px 0;
+  color: #393938;
+}
+
+.pizza-item > p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #747270;
+}
+
+footer {
+  margin: 20px 10px;
+}
+
+.soldout {
+  opacity: 0.5;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+  pointer-events: none;
 }

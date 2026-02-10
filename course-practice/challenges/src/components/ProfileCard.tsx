@@ -5,15 +5,15 @@ export function ProfileCard() {
     intro:
       "Motivated software developer training in Python/GenAI and full-stack tech (Angular, FastAPI). Strong in data handling (MongoDB/JSON) and eager to contribute to dynamic teams via clean code and modern frameworks.",
     skillsets: [
-      { name: "Angular", emoji: "🚀", color: "blue" },
-      { name: "HTML/CSS", emoji: "👍", color: "orange" },
-      { name: "JavaScript", emoji: "⭐", color: "purple" },
-      { name: "TypeScript", emoji: "⭐", color: "yellow" },
-      { name: "Python", emoji: "⭐", color: "green" },
-      { name: "Django", emoji: "⭐", color: "pink" },
-      { name: "Flask/FastAPI", emoji: "⭐", color: "violet" },
-      { name: "MongoDB", emoji: "⭐", color: "grey" },
-      { name: "Generative AI", emoji: "🤖", color: "red" },
+      { name: "Angular", level: "advanced", color: "blue" },
+      { name: "HTML/CSS", level: "advanced", color: "orange" },
+      { name: "JavaScript", level: "intermediate", color: "purple" },
+      { name: "TypeScript", level: "advanced", color: "yellow" },
+      { name: "Python", level: "beginner", color: "green" },
+      { name: "Django", level: "beginner", color: "pink" },
+      { name: "Flask/FastAPI", level: "beginner", color: "violet" },
+      { name: "MongoDB", level: "beginner", color: "grey" },
+      { name: "Generative AI", level: "beginner", color: "red" },
     ],
   };
   return (
@@ -47,19 +47,19 @@ function Introduction({ intro, name }: { intro: string; name: string }) {
 function Skills({
   list,
 }: {
-  list: { name: string; emoji: string; color: string }[];
+  list: { name: string; level: string; color: string }[];
 }) {
   return (
     <div className="list">
       {list.map(
         (
-          item: { name: string; emoji: string; color: string },
+          item: { name: string; level: string; color: string },
           index: number,
         ) => {
           return (
             <Skill
               name={item.name}
-              emoji={item.emoji}
+              level={item.level}
               color={item.color}
               key={index}
             />
@@ -72,20 +72,30 @@ function Skills({
 
 function Skill({
   name,
-  emoji,
+  level,
   color,
 }: {
   name: string;
-  emoji: string;
+  level: string;
   color: string;
 }) {
-  console.log(name);
+  function getEmoji(level: string) {
+    switch (level) {
+      case "beginner":
+        return "🤓";
+      case "intermediate":
+        return "👍";
+      case "advanced":
+        return "😎";
+      default:
+        return "";
+    }
+  }
+
   return (
-    <>
-      <div className="name" style={{ backgroundColor: color, color: "white" }}>
-        {name}
-        {emoji}
-      </div>
-    </>
+    <div className="name" style={{ backgroundColor: color }}>
+      <span>{name}</span>
+      <span className="emoji">{getEmoji(level)}</span>
+    </div>
   );
 }

@@ -64,7 +64,7 @@
 
 .card > .list {
   display: flex;
-  height: calc(100-40-30);
+  height: 30%;
   flex-wrap: wrap;
   overflow: auto;
   font-size: 13px;
@@ -72,9 +72,14 @@
   .name {
     padding: 5px;
     margin: 5px;
-    border: 1px solid;
+    border: 1px solid grey;
     border-radius: 5px;
+    color: white;
   }
+}
+
+.emoji {
+  margin: 0 5px;
 }
 
 .read-the-docs {

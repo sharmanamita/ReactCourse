@@ -3,6 +3,8 @@ import "./components.css";
 export type MenuItem = {
   name: string;
   ingredients: string;
+  price: number;
+  soldOut: boolean;
 };
 
 export function Header(props: { name: string }) {
@@ -31,13 +33,16 @@ function trimMenuName(name: string) {
 
 function MenuItemComponent({ item }: { item: MenuItem }) {
   return (
-    <div className="pizza-item">
+    <div className={`pizza-item ${item.soldOut ? "soldout" : ""}`}>
       <img
         src={`pizza-imgs/${trimMenuName(item.name)}.jpg`}
         alt={trimMenuName(item.name)}
       ></img>
       <h3>{item.name}</h3>
-      <p style={{ fontSize: "10px" }}>{item.ingredients}</p>
+      <p>{item.ingredients}</p>
+      <p>
+        <strong>{item.soldOut ? "SOLD OUT" : item.price}</strong>
+      </p>
     </div>
   );
 }
