@@ -1,10 +1,14 @@
 import "./App.css";
-import { ProfileCard } from "./components/ProfileCard";
+// import { ProfileCard } from "./components/ProfileCard";
+// import { Accordion } from "./UseState/Accordin";
+import { TipCalculator } from "./UseState/TipCalculator";
 
 function App() {
   return (
     <>
-      <ProfileCard />
+      {/* <ProfileCard /> */}
+      {/* <Accordion /> */}
+      <TipCalculator />
     </>
   );
 }

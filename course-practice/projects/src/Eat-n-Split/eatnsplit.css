@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container * {
+  padding: 5px;
+  margin: 5px;
+}
+
+.container .sidebar {
+  width: 40%;
+  background-color: #ffebcc;
+}
+
+.container .content {
+  width: 55%;
+  background-color: #ffebcc;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 1px solid #ccc;
+}
+
+.list-item img {
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+}
+
+.red {
+  color: maroon;
+}
+
+.green {
+  color: green;
+}
+
+Button {
+  background-color: #cc7a00;
+  border: none;
+  color: black;
+  padding: 8px 10px !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.bill-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+}

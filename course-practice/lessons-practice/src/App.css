@@ -8,3 +8,62 @@ Header,
 Footer {
   text-align: center;
 }
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  background-color: rgba(222, 213, 213, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+}
+
+.steps,
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.steps > div {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #f9f9f9;
+  line-height: 2;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+.buttons > button {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #064c97;
+  color: white;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #064c97 !important;
+  color: white !important;
+}
+
+.close {
+  position: relative;
+}
+
+.close {
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
