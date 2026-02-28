@@ -1,28 +1,43 @@
 .container {
   display: flex;
+  align-content: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .container * {
   padding: 5px;
-  margin: 5px;
+  margin: 2px;
 }
 
 .container .sidebar {
-  width: 40%;
-  background-color: #ffebcc;
+  width: 50%;
+  background-color: #fff;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.container .sidebar Button {
+  text-align: right;
 }
 
 .container .content {
-  width: 55%;
+  width: 50%;
   background-color: #ffebcc;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.list {
+  height: 300px;
+  overflow: auto;
 }
 
 .list-item {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border-bottom: 1px solid #ccc;
 }
 
 .list-item img {
@@ -45,20 +60,33 @@
 
 Button {
   background-color: #cc7a00;
-  border: none;
+  border: 1px solid black;
   color: black;
   padding: 8px 10px !important;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   margin: 4px 2px;
   cursor: pointer;
+  border-radius: 8px;
 }
 
-.bill-form {
+.bill-form p {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  gap: 10px;
+  justify-content: space-between;
+}
+
+.bill-form * {
+  width: 100%;
+}
+
+.bill-form > p > :not(label) {
+  text-align: center;
+}
+
+.selected {
+  background-color: #ffebcc;
+  border-radius: 10px;
+  cursor: pointer;
 }

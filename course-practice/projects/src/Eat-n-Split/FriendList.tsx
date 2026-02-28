@@ -1,23 +1,49 @@
+import type { friend } from "./EatnSplit";
 import "./eatnsplit.css";
 
-type friend = { id: number; name: string; image: string; balance: number };
-
-export function FriendsList({ list }: { list: friend[] }) {
+export function FriendsList({
+  list,
+  selected,
+  onSelection,
+}: {
+  list: friend[];
+  selected: friend | null;
+  onSelection: (id: string | number) => void;
+}) {
   return (
     <>
       <ul className="list">
-        {list.map((item) => {
-          return <ListItem item={item} />;
+        {list.map((item, index) => {
+          return (
+            <ListItem
+              key={index}
+              item={item}
+              selected={selected}
+              onSelect={(id: string | number) => onSelection(id)}
+            />
+          );
         })}
       </ul>
     </>
   );
 }
 
-const ListItem = ({ item }: { item: friend }) => {
+const ListItem = ({
+  item,
+  selected,
+  onSelect,
+}: {
+  item: friend;
+  selected: friend | null;
+  onSelect: (id: number | string) => void;
+}) => {
   return (
     <>
-      <ul key={item.id} className="list-item">
+      <li
+        key={item.id}
+        className={`list-item ${selected?.id == item.id ? "selected" : ""}`}
+        onClick={() => onSelect(item.id)}
+      >
         <img src={item.image} alt={item.name} width={50} height={50} />
         <div className="info">
           <label>
@@ -26,7 +52,7 @@ const ListItem = ({ item }: { item: friend }) => {
           <CheckBalance balance={item.balance} />
         </div>
         <Button onClick={() => console.log(item.name)}>Select</Button>
-      </ul>
+      </li>
     </>
   );
 };
@@ -45,7 +71,7 @@ export const Button = ({
   onClick,
   children,
 }: {
-  onClick: () => void;
+  onClick?: () => void;
   children: React.ReactNode;
 }) => {
   return <button onClick={onClick}>{children}</button>;
