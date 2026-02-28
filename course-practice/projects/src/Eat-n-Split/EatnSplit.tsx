@@ -162,6 +162,8 @@ function FormSplitBill({
     e.preventDefault();
     const value = whoIsPaying == "you" ? paidByFriend : -paidByFriend;
     onSubmit(value);
+    setBill("");
+    setPaidByYou("");
   }
 
   return (
